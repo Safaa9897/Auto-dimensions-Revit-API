@@ -1,0 +1,39 @@
+﻿<Window x:Class="Revit_API_Project.Views.DoorsAndWindowAnnotationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Revit_API_Project.Views"
+        mc:Ignorable="d"
+        Title="Doors and Window Auto Tagging View" Height="110" Width="300" ResizeMode="NoResize" >
+    <Border Padding="5 0 5 0">
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="0.1*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="0.1*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+
+            <Label FontFamily="fonts\worksans-italic-variablefont_wght.ttf" Content="Select Type" Grid.Row="1" Grid.Column="0" FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" ></Label>
+
+            <ComboBox Margin="10 5 10 5" Grid.Row="1" Grid.Column=" 1" ItemsSource="{Binding _doorsAndWindowAnnotationModel}" 
+                          SelectedItem="{Binding SelectedCategoryObj,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ></ComboBox>
+
+            <CheckBox FontFamily="fonts\worksans-italic-variablefont_wght.ttf"  Margin="8" FontSize="14" Grid.Row="3" Grid.Column="0" Content="Has Leader" IsChecked="{Binding HasLeader,Mode=TwoWay,
+                    UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" ></CheckBox>
+
+            <Button FontFamily="fonts\worksans-italic-variablefont_wght.ttf" Margin="10 5 10 5" FontSize="15"  Grid.Row="3" Grid.Column="1" Content="Create Tags" Command="{Binding DoneCommand}"></Button>
+
+        </Grid>
+        
+    </Border>
+</Window>
